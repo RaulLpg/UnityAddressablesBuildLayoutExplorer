@@ -498,7 +498,7 @@ namespace Oddworm.EditorFramework
                     // Size from Streamed Data: 170.68KB
                     // File Index: 0
                     // Addressable Name: Assets/art/debug/debug_checkerboard.png
-                    foreach (var entry in line.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries))
+                    foreach (var entry in line.Split(new[] { ", " }, System.StringSplitOptions.RemoveEmptyEntries))
                     {
                         // entry contains:
                         // Total Size: 170.88KB
@@ -590,25 +590,25 @@ namespace Oddworm.EditorFramework
                 if (size.EndsWith("GB", System.StringComparison.OrdinalIgnoreCase))
                 {
                     var s = size.Substring(0, size.Length - 2);
-                    return (long)(float.Parse(s, CultureInfo.InvariantCulture) * 1024 * 1024 * 1024);
+                    return (long)(float.Parse(s) * 1024 * 1024 * 1024);
                 }
 
                 if (size.EndsWith("MB", System.StringComparison.OrdinalIgnoreCase))
                 {
                     var s = size.Substring(0, size.Length - 2);
-                    return (long)(float.Parse(s, CultureInfo.InvariantCulture) * 1024 * 1024);
+                    return (long)(float.Parse(s) * 1024 * 1024);
                 }
 
                 if (size.EndsWith("KB", System.StringComparison.OrdinalIgnoreCase))
                 {
                     var s = size.Substring(0, size.Length - 2);
-                    return (long)(float.Parse(s, CultureInfo.InvariantCulture) * 1024);
+                    return (long)(float.Parse(s) * 1024);
                 }
 
                 if (size.EndsWith("B", System.StringComparison.OrdinalIgnoreCase))
                 {
                     var s = size.Substring(0, size.Length - 1);
-                    return long.Parse(s, CultureInfo.InvariantCulture);
+                    return long.Parse(s);
                 }
 
                 return -1;
